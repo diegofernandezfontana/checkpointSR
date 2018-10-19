@@ -9,9 +9,8 @@ const Message = db.define('message', {
     },
     body: {
         type: Sequelize.JSON,
-        validate: {
-            notEmpty: true
-        }
+        allowNull: false
+        
     },
     /*validate:{
         type: Sequelize.VIRTUAL,
