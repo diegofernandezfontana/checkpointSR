@@ -7,5 +7,26 @@ const User = db.model('user');
 const router = express.Router();
 
 
+router.get('/to/:user', function (req, res) {
+    var id = req.params.user;
+    
+    Message.findAll({
+        where:{
+            toId:id
+        }
+    })
+    .then(data => res.send(data))
+});
+
+router.get('/from/:user', function (req, res) {
+    var id = req.params.user;
+    
+    Message.findAll({
+        where:{
+            fromId:id
+        }
+    })
+    .then(data => res.send(data))
+});
 
 export default router;
