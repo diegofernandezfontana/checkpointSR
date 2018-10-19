@@ -9,6 +9,7 @@ const router = express.Router();
 
 router.get('/to/:user', function (req, res) {
     var id = req.params.user;
+    console.log('ESTOY ENTRANDO');
     
     Message.findAll({
         where:{

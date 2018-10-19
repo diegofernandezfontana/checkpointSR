@@ -81,7 +81,7 @@ describe('▒▒▒ Backend tests ▒▒▒', () => {
                     expect(message.subject).to.be.equal('No Subject');
                 });
 
-                xit('requiere un body', () => {
+                it('requiere un body', () => {
                     const message = Message.build();
                     return message.validate()
                         .then(() => { throw new Error('Promise should have rejected');})
@@ -364,7 +364,8 @@ describe('▒▒▒ Backend tests ▒▒▒', () => {
 
                 // recuerdas eager loading?
 
-                it('sirve todos los mensajes completada con referencia a los usuarios específicos en GET /to/{{recipientId}}', () => {
+                it(`'sirve todos los mensajes completada con referencia a los
+                 usuarios específicos en GET /to/{{recipientId}}`, () => {
                     return agent
                         .get(`/messages/to/${obama}`)
                         .expect(200)

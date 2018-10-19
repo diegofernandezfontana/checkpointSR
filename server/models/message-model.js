@@ -5,15 +5,36 @@ const User = db.model('user');
 const Message = db.define('message', {
     subject: {
         type: Sequelize.JSON,
-        defaultValue: 'No Subject'
+        defaultValue: 'No Subject',
     },
     body: {
         type: Sequelize.JSON,
         validate: {
-            notNull: true
+            notEmpty: true
         }
     },
-});
+    /*validate:{
+        type: Sequelize.VIRTUAL,
+        validate(){
+            if (this.body === undefined){
+                throw new Error('Promise should have rejected')
+            }
+        }
+    }*/
+}
+/*, {
+    hooks:{
+        beforeValidate: (message) =>{
+            if(message.body == undefined){
+                throw new Error('Promise should have rejected');
+            }
+        }
+    }
+}
+*/
+);
+
+
 
 Message.getAllWhereSender = function(user){
     return Message.findAll({

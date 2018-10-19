@@ -58,14 +58,17 @@ describe('▒▒▒ JavaScript tests ▒▒▒', function () {
                 ];
             });
 
-            xit('retorna un object', () => {
+            it('retorna un object', () => {
                 const returnValue = groupBy(users, user => user.age > 13);
                 expect(returnValue).to.be.an('object');
             });
 
             describe('el objeto retornado', () => {
 
-                xit('tiene llaves que coinciden con los valores retornados del iterador y el valor de cada propiedad es un arreglo de los elementos que fueron el parametro cuando la llave fue retornada', () => {
+                it(`tiene llaves que coinciden con los valores retornados del 
+                    iterador y el valor de cada
+                    propiedad es un arreglo de los elementos que fueron el parametro
+                    cuando la llave fue retornada`, () => {
 
                     const returnValue = groupBy(users, user => {
                         if (user.age > 13) {
